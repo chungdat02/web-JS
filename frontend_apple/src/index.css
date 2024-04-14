@@ -1,0 +1,28 @@
+@import "~slick-carousel/slick/slick.css"; 
+@import "~slick-carousel/slick/slick-theme.css";
+/* @import 'antd/dist/antd.min.css'; */
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+body {
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+}
+html{
+  font-size: 62.5%;
+}
+:where(.css-dev-only-do-not-override-6j9yrn).ant-btn.ant-btn-lg {
+  border-radius: 0px 8px 8px 0px;
+}
+:where(.css-dev-only-do-not-override-6j9yrn).ant-input-lg{
+  border-radius: 8px 0px 0px 8px;
+}
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+.sc-fFubCH{
+  height: 70%;
+}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
