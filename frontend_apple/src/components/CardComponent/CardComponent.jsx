@@ -25,6 +25,11 @@ const CardComponent = ({ data }) => {
     setListIdCart(listId);
   }, [cart]);
 
+  const redirectToProductPage = () => {
+    window.location.href = '/clock/clock.html'
+    console.log(window.location.href)
+  };
+
   return (
     <div>
       <WrapperCardStyle
@@ -60,6 +65,7 @@ const CardComponent = ({ data }) => {
               background: "green",
               borderRadius: "10px",
               color: "white",
+              marginBottom: "5px", // Thêm khoảng cách giữa các nút
             }}
           >
             Đã có trong giỏ hàng
@@ -72,12 +78,25 @@ const CardComponent = ({ data }) => {
               background: "red",
               borderRadius: "10px",
               color: "white",
+              marginBottom: "5px", // Thêm khoảng cách giữa các nút
             }}
             onClick={handleAddToCart}
           >
             Thêm giỏ hàng
           </button>
         )}
+        <button
+          style={{
+            width: "100%",
+            height: "35px",
+            background: "blue",
+            borderRadius: "10px",
+            color: "white",
+          }}
+          onClick={redirectToProductPage}
+        >
+          Xem chi tiết
+        </button>
       </WrapperCardStyle>
     </div>
   );

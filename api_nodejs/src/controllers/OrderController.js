@@ -3,10 +3,12 @@ const Order = require('../models/OrderModel');
 const OrderController = {
   createOrder: async (req, res) => {
     try {
+      console.log(req.body);
       const newOrder = await Order.create(req.body);
-      res.status(201).json(newOrder);
+      return res.status(201).send(newOrder);
     } catch (error) {
-      res.status(500).json({ message: error.message });
+
+      return res.status(500).json({ message: error.message });
     }
   },
 
@@ -18,7 +20,7 @@ const OrderController = {
       }
       res.json(updatedOrder);
     } catch (error) {
-      res.status(500).json({ message: error.message });
+      return res.status(500).json({ message: error.message });
     }
   },
 
@@ -30,16 +32,16 @@ const OrderController = {
       }
       res.json(order);
     } catch (error) {
-      res.status(500).json({ message: error.message });
+      return res.status(500).json({ message: error.message });
     }
   },
 
   getAllOrders: async (req, res) => {
     try {
       const orders = await Order.find();
-      res.json(orders);
+      return res.json(orders);
     } catch (error) {
-      res.status(500).json({ message: error.message });
+      return res.status(500).json({ message: error.message });
     }
   },
 
@@ -51,7 +53,7 @@ const OrderController = {
       }
       res.json({ message: 'Order deleted successfully' });
     } catch (error) {
-      res.status(500).json({ message: error.message });
+      return res.status(500).json({ message: error.message });
     }
   }
 };

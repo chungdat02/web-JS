@@ -6,20 +6,47 @@ import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 // import dotenv from "dotenv";
 // dotenv.config();
-function App() {
-  // useEffect(() => {
-  //   fetchApi();
-  // }, []);
+import CheckoutPage from "./CheckoutPage"; 
+// function App() {
+//   // useEffect(() => {
+//   //   fetchApi();
+//   // }, []);
 
-  // const fetchApi = async () => {
-  //   // console.log("url", process.env.REACT_APP_API_URL);
-  //   const res = await axios.get(
-  //     `${process.env.REACT_APP_API_URL}/product/get-all`
-  //   );
-  //   return res.data;
-  // };
-  // const query = useQuery({ queryKey: ["todos"], queryFn: fetchApi });
-  // console.log("query", query);
+//   // const fetchApi = async () => {
+//   //   // console.log("url", process.env.REACT_APP_API_URL);
+//   //   const res = await axios.get(
+//   //     `${process.env.REACT_APP_API_URL}/product/get-all`
+//   //   );
+//   //   return res.data;
+//   // };
+//   // const query = useQuery({ queryKey: ["todos"], queryFn: fetchApi });
+//   // console.log("query", query);
+//   return (
+//     <div>
+//       <Router>
+//         <Routes>
+//           {routes.map((route, index) => {
+//             const Page = route.page;
+//             const Layout = route.isShowHeader ? DefaultComponent : Fragment;
+//             return (
+//               <Route
+//                 key={index}
+//                 path={route.path}
+//                 element={
+//                   <Layout>
+//                     <Page />
+//                   </Layout>
+//                 }
+//               />
+//             );
+//           })}
+//         </Routes>
+//       </Router>
+//     </div>
+//   );
+// }
+// export default App;
+function App() {
   return (
     <div>
       <Router>
@@ -39,9 +66,19 @@ function App() {
               />
             );
           })}
+          {/* Thêm route cho CheckoutPage */}
+          <Route
+            path="/checkout"
+            element={
+              <DefaultComponent>
+                <CheckoutPage />
+              </DefaultComponent>
+            }
+          />
         </Routes>
       </Router>
     </div>
   );
 }
+
 export default App;

@@ -1,6 +1,7 @@
 const express = require("express");
 const dotenv = require("dotenv");
 const routes = require("./routes");
+// const session = require("express-session");
 // const bodyCookie = require("body-cookie");
 const cors = require("cors");
 const bodyParser = require("body-parser");
@@ -14,6 +15,7 @@ const port = process.env.PORT || 3001;
 app.use(bodyParser.json());
 app.use(cors());
 app.use(cookieParser());
+
 routes(app);
 
 //connect database Mongodb

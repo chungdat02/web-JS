@@ -10,6 +10,7 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { updateCart } from "../../redux/cartSlice";
 import * as message from "../../components/Message/Message";
+import { Link } from "react-router-dom";
 
 const ButtonAmount = styled(Box)({
   display: "flex",
@@ -20,7 +21,7 @@ const ButtonAmount = styled(Box)({
   border: "1px solid #ddd",
 });
 
-const CardPage = () => {
+const CartPage = () => {
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart.cart);
   const [listCart, setListCart] = useState([]);
@@ -187,6 +188,13 @@ const CardPage = () => {
             })}
           </Typography>
         </Box>
+        <Box mt={2} display={"flex"} justifyContent={"center"}>
+        <Link to="/checkout">
+            <Button variant="contained" color="primary" sx={{ fontSize: 14 }}>
+              Thanh toán
+            </Button>
+          </Link>
+        </Box>
       </Container>
       <Box display={"flex"} mt={2} justifyContent={"center"}>
         <Button variant="contained" onClick={handleSaveCartInfo}>
@@ -197,4 +205,4 @@ const CardPage = () => {
   );
 };
 
-export default CardPage;
+export default CartPage;

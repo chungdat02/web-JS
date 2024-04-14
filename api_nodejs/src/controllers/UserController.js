@@ -118,14 +118,17 @@ const loginUser = async (req, res) => {
       });
     }
     const response = await UserService.loginUser(req.body);
-    // console.log("response", response);
+    // console.log("response", res);
     const { refresh_token, ...newReponse } = response;
+  
+    res.set("Authorization", `Bearer ${response.access_token}`)
     res.cookie("refresh_token", refresh_token, {
       httpOnly: true,
       secure: false,
       sameSite: "strict",
       path: "/",
     });
+    
     return res.status(200).json({ ...newReponse, refresh_token });
   } catch (e) {
     return res.status(404).json({ message: e });
@@ -157,6 +160,13 @@ const deleteUser = async (req, res) => {
       return res.status(200).json({
         status: "error",
         message: "The userId is required",
+      });
+    }
+    const user = await User.findOne({ _id: userId });
+    if (!user) {
+      return res.status(200).json({
+        status: "error",
+        message: "The user is not defined",
       });
     }
     const response = await UserService.deleteUser(userId);
